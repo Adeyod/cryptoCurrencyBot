@@ -111,7 +111,11 @@ try {
       return;
     }
 
-    if (inputLower === 'help' || inputLower === '/start') {
+    if (
+      inputLower === 'help' ||
+      inputLower === '/start' ||
+      inputLower === 'start'
+    ) {
       bot.telegram.sendMessage(userId, info, { parse_mode: 'html' });
       return;
     }
