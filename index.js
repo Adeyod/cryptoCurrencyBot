@@ -100,8 +100,8 @@ try {
     👉 'stats' - To get current total stats of cryptocurrencies.\n
     👉 'bitcoin'(or any other cryptocurrency name) - To get all the possible information of that cryptocurrency.\n
     👉 'list' - To get list of all cryptocurrencies with their rank, name, UID.\n
-    *Things to remember while using this bot* - 
-    👉 Make sure of the format given above otherwise it will not work.\n
+    <b>Things to remember while using this bot</b> - 
+    👉 Make sure to use the format given above otherwise it will not work.\n
     👉 If the name of cryptocurrency didn't work then type 'list' to get all the list of cryptocurrencies and from that list you can copy name in order to get information of the cryptocurrency that you want.\n
     <b><i>Thank you for using this bot.</i></b>
     `;
@@ -139,7 +139,6 @@ try {
       inputLower === '/crypto'
     ) {
       coins.map((coin) => {
-        console.log('coin:', coin.name, coin.rank, coin.uuid);
         let info = `
         <b>COIN NAME:</b> ${coin.name}
         <b>COIN RANK:</b> ${coin.rank}
@@ -176,7 +175,6 @@ try {
 
         try {
           const response = await axios.request(options3);
-          console.log('response:', response.data);
           return;
         } catch (error) {
           console.error(error);
@@ -184,7 +182,6 @@ try {
         return;
         return;
       } else {
-        // console.log('query:', query);
         const result = await coins.filter((coin) => {
           return coin.name.toLowerCase() === query;
         });
@@ -201,7 +198,7 @@ try {
           bot.telegram.sendMessage(userId, info, { parse_mode: 'html' });
         } else {
           const uuid = result[0].uuid;
-          console.log(uuid);
+
           const url = `https://coinranking1.p.rapidapi.com/coin/${uuid}`;
 
           try {
